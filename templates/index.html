@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emerspark Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="chat-page">
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">E</span><span>Emerspark Assistant</span></a>
+      <a class="text-link" href="{{ url_for('admin_login') }}">Admin portal</a>
+    </header>
+    <section class="chat-layout">
+      <aside class="intro-panel">
+        <p class="eyebrow">OFFLINE AI ASSISTANT</p>
+        <h1>Answers that stay close to your knowledge.</h1>
+        <p class="muted">Ask a question and I will search the Emerspark knowledge base for the closest answer.</p>
+        <div class="status"><span class="status-dot"></span><span>System online</span></div>
+        <div class="suggestions">
+          <p class="label">Try asking</p>
+          <button data-suggestion="What are your business hours?">What are your business hours?</button>
+          <button data-suggestion="Where are you located?">Where are you located?</button>
+          <button data-suggestion="What services do you offer?">What services do you offer?</button>
+        </div>
+      </aside>
+      <section class="chat-card" aria-label="Chat with Emerspark Assistant">
+        <div class="chat-header"><div><p class="label">CONVERSATION</p><h2>Emerspark Assistant</h2></div><span class="score-badge">TF-IDF</span></div>
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="message bot"><div class="avatar">E</div><div><p class="message-text">Hello. What would you like to know?</p><time>Just now</time></div></div>
+        </div>
+        <form id="chat-form" class="composer"><input id="message-input" autocomplete="off" placeholder="Ask a question..." aria-label="Your question"><button type="submit" class="send-button" aria-label="Send message">Send <span>↗</span></button></form>
+      </section>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+</body>
+</html>
